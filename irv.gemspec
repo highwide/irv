@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Providing a Instant-runoff Voting.}
   spec.description   = %q{Instant-runoff Voting is a type of ranked preferential voting method. This gem makes it enable Ruby program.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/highwide/irv"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "rubocop", '~> 0.71.0'
 end
