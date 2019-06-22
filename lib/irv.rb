@@ -1,6 +1,14 @@
-require "irv/version"
+# frozen_string_literal: true
+
+require 'irv/version'
+require 'irv/election'
 
 module Irv
-  class Error < StandardError; end
-  # Your code goes here...
+  module_function
+
+  def new(candidates)
+    Election.new(candidates)
+  end
+
+  class FillingWithIncorrectCandidatesError < StandardError; end
 end
