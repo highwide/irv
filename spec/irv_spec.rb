@@ -1,9 +1,11 @@
-RSpec.describe Irv do
-  it "has a version number" do
-    expect(Irv::VERSION).not_to be nil
-  end
+# frozen_string_literal: true
 
-  it "does something useful" do
-    expect(false).to eq(true)
+RSpec.describe Irv do
+  describe '#new' do
+    subject(:election) { Irv.new(candidates) }
+
+    let(:candidates) { %w(a b c) }
+
+    it { expect(election.candidates).to eq candidates }
   end
 end
