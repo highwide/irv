@@ -1,8 +1,6 @@
 # Irv
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/irv`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem provides [Instant-Runoff Voting](https://en.wikipedia.org/wiki/Instant-runoff_voting) for Ruby program.
 
 ## Installation
 
@@ -22,7 +20,77 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'irv'
+
+irv = Irv.new(['John', 'Paul', 'Ringo', 'George'])
+
+ballots = []
+5.times { ballots << irv.issue_ballot }
+
+ballots[0].fill!(['John', 'George', 'Ringo'])
+ballots[1].fill!(['John', 'Ringo', 'George', 'Paul'])
+ballots[2].fill!(['Paul', 'George', 'Ringo', 'John'])
+ballots[3].fill!(['Ringo', 'Paul', 'George'])
+ballots[4].fill!(['George', 'Ringo', 'John'])
+
+ballots.each { |ballot| irv.poll!(ballot) }
+
+puts irv.winner
+
+# => 'George'
+```
+
+### Why George was choosen in this example?
+
+#### Round 1
+
+|      |A|B|C|D|E|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|John  |1|1|4|-|3|
+|Paul  |-|4|1|2|-|
+|Ringo |3|2|3|1|2|
+|George|2|3|2|3|1|
+
+John got two first ranked votes. But it wasn't the majority.
+So, Election goes on without last place candidate.
+
+In this case, Paul, Ringo and George got one first ranked vote.
+How was second ranked vote?  Paul got only one vote. Ringo and George got two.
+Therefore Paul got lose in this round.
+
+#### Round 2
+
+|      |A|B|C|D|E|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|John  |1|1|3|-|3|
+|Ringo |3|2|2|1|2|
+|George|2|3|1|2|1|
+
+John and George got two first ranked votes. Ringo got one.
+So, Ringo got lose in this round
+
+#### Round 3
+
+|      |A|B|C|D|E|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|John  |1|1|2|-|2|
+|George|2|2|1|1|1|
+
+George got three first ranked votes! It was a majority. So George became winner.
+
+#### If you know these stuff in a Ruby program
+
+```ruby
+# After polled...
+
+result = irv.result
+result.process.each { |pr| puts "round: #{pr.order} /majority: #{pr.majority} / loser: #{pr.loser}" }
+
+# => round: 1 /majority:  / loser: Paul
+# => round: 2 /majority:  / loser: Ringo
+# => round: 3 /majority: George / loser:
+```
 
 ## Development
 
