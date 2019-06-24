@@ -2,7 +2,7 @@
 
 module Irv
   class Round
-    attr_reader :order, :majority, :loser
+    attr_reader :order, :tallied_votes, :majority, :loser
 
     def initialize(order, candidates, votes)
       @order = order
