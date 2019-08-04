@@ -5,11 +5,11 @@ RSpec.describe Irv::Result do
   let(:candidates) { %w(a b c) }
   let(:ballots) do
     [
-      Irv::Ballot.new(candidates).tap { |b| b.fill!(%w(a b c)) },
-      Irv::Ballot.new(candidates).tap { |b| b.fill!(%w(a c b)) },
-      Irv::Ballot.new(candidates).tap { |b| b.fill!(%w(b a c)) },
-      Irv::Ballot.new(candidates).tap { |b| b.fill!(%w(b c a)) },
-      Irv::Ballot.new(candidates).tap { |b| b.fill!(%w(c b a)) }
+      %w(a b c),
+      %w(a c b),
+      %w(b a c),
+      %w(b c a),
+      %w(c b a)
     ]
   end
 

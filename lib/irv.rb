@@ -10,5 +10,5 @@ module Irv
     Election.new(candidates)
   end
 
-  class FillingWithIncorrectCandidatesError < StandardError; end
+  class PollingWithIncorrectCandidatesError < StandardError; end
 end

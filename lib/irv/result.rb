@@ -9,7 +9,7 @@ module Irv
     def initialize(candidates, ballots)
       @process = []
       round_order = 1
-      round = Round.new(round_order, candidates, ballots.map(&:ranked_candidates))
+      round = Round.new(round_order, candidates, ballots)
 
       (candidates.count - 1).times do
         @process << round
