@@ -79,7 +79,7 @@ So, Ringo got lose in this round
 
 George got three first ranked votes! It was a majority. So George became winner.
 
-#### If you know these stuff in a Ruby program
+#### If you want to know these stuff in a Ruby program
 
 ```ruby
 # After polled...
