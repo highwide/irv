@@ -1,4 +1,6 @@
 # Irv
+[![Gem Version](https://badge.fury.io/rb/irv.svg)](https://badge.fury.io/rb/irv)
+[![Build Status](https://travis-ci.org/highwide/irv.svg?branch=master)](https://travis-ci.org/highwide/irv)
 
 This gem provides [Instant-Runoff Voting](https://en.wikipedia.org/wiki/Instant-runoff_voting) for Ruby program.
 

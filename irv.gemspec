@@ -14,6 +14,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Instant-runoff Voting is a type of ranked preferential voting method. This gem makes it enable Ruby program.'
   spec.homepage      = 'https://github.com/highwide/irv'
   spec.license       = 'MIT'
+  spec.required_ruby_version = '>= 2.4.0'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

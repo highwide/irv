@@ -1,6 +1,14 @@
 AllCops:
-  TargetRubyVersion: 2.6.3
+  TargetRubyVersion: 2.4
   DisplayCopNames: true
+
+Layout/ExtraSpacing:
+  Exclude:
+    - 'irv.gemspec'
+
+Layout/SpaceAroundOperators:
+  Exclude:
+    - 'irv.gemspec'
 
 Style/AsciiComments:
   Enabled: false
