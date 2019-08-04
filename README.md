@@ -27,16 +27,11 @@ require 'irv'
 
 irv = Irv.new(['John', 'Paul', 'Ringo', 'George'])
 
-ballots = []
-5.times { ballots << irv.issue_ballot }
-
-ballots[0].fill!(['John', 'George', 'Ringo'])
-ballots[1].fill!(['John', 'Ringo', 'George', 'Paul'])
-ballots[2].fill!(['Paul', 'George', 'Ringo', 'John'])
-ballots[3].fill!(['Ringo', 'Paul', 'George'])
-ballots[4].fill!(['George', 'Ringo', 'John'])
-
-ballots.each { |ballot| irv.poll!(ballot) }
+irv.poll!(['John', 'George', 'Ringo'])
+  .poll!(['John', 'Ringo', 'George', 'Paul'])
+  .poll!(['Paul', 'George', 'Ringo', 'John'])
+  .poll!(['Ringo', 'Paul', 'George'])
+  .poll!(['George', 'Ringo', 'John'])
 
 puts irv.winner
 
