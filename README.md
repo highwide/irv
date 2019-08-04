@@ -27,7 +27,8 @@ require 'irv'
 
 irv = Irv.new(['John', 'Paul', 'Ringo', 'George'])
 
-irv.poll!(['John', 'George', 'Ringo'])
+irv
+  .poll!(['John', 'George', 'Ringo'])
   .poll!(['John', 'Ringo', 'George', 'Paul'])
   .poll!(['Paul', 'George', 'Ringo', 'John'])
   .poll!(['Ringo', 'Paul', 'George'])

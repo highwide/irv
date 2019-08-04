@@ -25,6 +25,10 @@ Style/RegexpLiteral:
 Style/NegatedWhile:
   Enabled: false
 
+Style/WordArray:
+  Exclude:
+    - 'spec/irv_spec.rb'
+
 Metrics/AbcSize:
   Enabled: false
 
