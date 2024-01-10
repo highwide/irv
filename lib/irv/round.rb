@@ -79,7 +79,7 @@ module Irv
       end
 
       # if last ranked votes can't decide loser, choose it at random
-      target_candidates.sample
+      target_candidates.sample.to_s
     end
   end
 end
