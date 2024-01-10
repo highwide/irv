@@ -71,6 +71,22 @@ RSpec.describe Irv::Round do
           expect(round.loser).to eq 'c'
         end
       end
+
+      context 'and there is a tie for loser' do
+        let(:candidates) { %w(a b) }
+        let(:votes) do
+          [
+            %w(a b),
+            %w(b a)
+          ]
+        end
+
+        it 'does not have a majority / has a tied loser' do
+          aggregate_failures do
+            expect(round.loser).to eq('a').or eq('b')
+          end
+        end
+      end
     end
 
     describe '#exist_majority?' do
