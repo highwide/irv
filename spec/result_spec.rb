@@ -53,6 +53,19 @@ RSpec.describe Irv::Result do
 
   describe '#winner' do
     subject { result.winner }
+
     it { is_expected.to eq 'b' }
+
+    context 'when the process ends in a tie' do
+      let(:candidates) { %w(a b) }
+      let(:ballots) do
+        [
+          %w(a b),
+          %w(b a)
+        ]
+      end
+
+      it { is_expected.to eq('a').or eq('b') }
+    end
   end
 end
