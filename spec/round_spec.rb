@@ -62,7 +62,7 @@ RSpec.describe Irv::Round do
       it 'does not have a majority / has a loser' do
         aggregate_failures do
           expect(round.order).to eq 1
-          expect(round.instance_variable_get('@tallied_votes')) .to eq [
+          expect(round.instance_variable_get('@tallied_votes')).to eq [
             { a: 1, b: 1, c: 1 },
             { a: 2, b: 1, c: 0 },
             { a: 0, b: 0, c: 2 }
