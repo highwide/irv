@@ -11,7 +11,7 @@ module Irv
       round_order = 1
       round = Round.new(round_order, candidates, ballots)
 
-      (candidates.count - 1).times do
+      candidates.count.times do
         @process << round
         break if round.exist_majority?
 
