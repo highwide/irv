@@ -46,7 +46,7 @@ module Irv
       tallied_votes = []
       max_ranked_votes_count(votes).times do |n|
         nth_ranked_votes = votes.map { |vote| vote[n] }
-        tallied_votes << @candidates.each_with_object({}) { |candidate, hash| hash[candidate.to_sym] = nth_ranked_votes.count(candidate) }
+        tallied_votes << @candidates.to_h { |c| [c.to_s.to_sym, nth_ranked_votes.count(c)] }
       end
       tallied_votes
     end
